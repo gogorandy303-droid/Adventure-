@@ -1,0 +1,646 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌟 The Present Simple Tense · Grade 3 Grammar Adventure</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito',sans-serif;
+    color:#334155;
+    background-color:#fff8e9;
+    background-image:radial-gradient(#fbe7c6 2.5px,transparent 2.5px);
+    background-size:42px 42px;
+    overflow-x:hidden;
+  }
+  .fredoka{font-family:'Fredoka',sans-serif}
+  h1,h2,h3{font-family:'Fredoka',sans-serif}
+
+  /* ---------- animations ---------- */
+  @keyframes floaty{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(5deg)}}
+  .floaty{animation:floaty 4.5s ease-in-out infinite}
+  @keyframes popIn{0%{transform:scale(.7);opacity:0}70%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
+  .pop-in{animation:popIn .35s ease-out}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+  .shake{animation:shake .45s ease}
+  @keyframes confFall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(112vh) rotate(720deg);opacity:.85}}
+  .confetti-piece{position:fixed;top:-30px;z-index:9999;pointer-events:none;animation:confFall linear forwards}
+
+  /* ---------- shared bits ---------- */
+  .section-badge{display:inline-block;font-family:'Fredoka',sans-serif;font-weight:600;font-size:.95rem;padding:.45rem 1.3rem;border-radius:9999px;letter-spacing:.02em}
+  .tag{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+  .v{font-family:'Fredoka',sans-serif;font-weight:600;color:#0d9488;background:#ccfbf1;border-radius:.4rem;padding:0 .35em}
+  .nav-link{font-family:'Fredoka',sans-serif;font-weight:600;white-space:nowrap;padding:.5rem 1.1rem;border-radius:9999px;background:#f1f5f9;color:#475569;transition:all .18s ease}
+  .nav-link:hover{background:#fef3c7;color:#b45309;transform:translateY(-2px)}
+  .no-scrollbar{scrollbar-width:none}
+  .no-scrollbar::-webkit-scrollbar{display:none}
+
+  /* ---------- pattern explorer ---------- */
+  .eq-box{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.05rem;padding:.7rem 1.3rem;border-radius:1rem}
+  .pick-btn{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.1rem;padding:.55rem 1.25rem;border-radius:9999px;cursor:pointer;background:#fff;color:#475569;border:3px solid #e2e8f0;box-shadow:0 3px 0 #e2e8f0;transition:all .15s ease}
+  .pick-btn:hover{transform:translateY(-2px)}
+  .pick-btn:active{transform:translateY(1px);box-shadow:0 1px 0 #e2e8f0}
+  .pick-btn.active-p{background:#8b5cf6;border-color:#7c3aed;color:#fff;box-shadow:0 3px 0 #6d28d9}
+  .pick-btn.active-v{background:#14b8a6;border-color:#0d9488;color:#fff;box-shadow:0 3px 0 #0f766e}
+  #sSubj{color:#c4b5fd}
+  #sVerb{color:#5eead4}
+  .s-magic{color:#fbbf24;text-decoration:underline;text-decoration-thickness:.14em;text-underline-offset:.18em}
+
+  /* ---------- frequency chart ---------- */
+  .freq-track{background:#f1f5f9;border-radius:9999px;height:1.7rem;overflow:hidden}
+  .freq-bar{height:100%;border-radius:9999px;width:0;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+  .freq-row.in .freq-bar{width:var(--w)}
+  .chip{font-family:'Fredoka',sans-serif;font-weight:600;background:#fff;border:2px dashed #94a3b8;color:#475569;border-radius:9999px;padding:.35rem 1rem;font-size:.95rem}
+
+  /* ---------- table ---------- */
+  .pronoun-chip{display:inline-block;min-width:3.2rem;text-align:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.1rem;background:#eef2ff;color:#4338ca;border-radius:.75rem;padding:.3rem .6rem}
+  tr.magic-row{background:#fff7ed}
+  tr.magic-row .pronoun-chip{background:#ffedd5;color:#c2410c}
+  tbody tr{transition:background .15s ease}
+  tbody tr:hover{background:#f8fafc}
+  tbody tr.magic-row:hover{background:#ffedd5}
+
+  /* ---------- quiz ---------- */
+  .quiz-opt{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.2rem;background:#f8fafc;border:3px solid #e2e8f0;color:#334155;padding:.85rem 1.2rem;border-radius:1rem;text-align:left;cursor:pointer;transition:all .16s ease;width:100%}
+  .quiz-opt:hover:not(:disabled){border-color:#a78bfa;background:#f5f3ff;transform:translateX(6px)}
+  .quiz-opt:disabled{cursor:default}
+  .quiz-opt.correct{background:#dcfce7;border-color:#22c55e;color:#15803d}
+  .quiz-opt.wrong{background:#ffe4e6;border-color:#f43f5e;color:#be123c;animation:shake .45s ease}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header id="top" class="relative overflow-hidden bg-gradient-to-br from-sky-400 via-teal-400 to-emerald-400 pt-12 pb-28">
+  <div class="absolute top-8 left-[6%] text-5xl floaty">✏️</div>
+  <div class="absolute top-14 right-[8%] text-5xl floaty" style="animation-delay:.6s">📚</div>
+  <div class="absolute top-44 left-[14%] text-4xl floaty hidden md:block" style="animation-delay:1.2s">⭐</div>
+  <div class="absolute top-36 right-[20%] text-4xl floaty hidden md:block" style="animation-delay:1.8s">🚀</div>
+  <div class="absolute bottom-28 left-[26%] text-4xl floaty hidden md:block" style="animation-delay:.9s">🌟</div>
+  <div class="absolute bottom-20 right-[30%] text-4xl floaty" style="animation-delay:1.5s">🎒</div>
+
+  <div class="relative max-w-4xl mx-auto text-center px-4">
+    <div class="inline-block bg-white/90 backdrop-blur rounded-full px-6 py-2 mb-6 shadow-lg">
+      <span class="fredoka font-semibold text-teal-600">📖 Grade 3 English Grammar</span>
+    </div>
+    <h1 class="fredoka font-bold text-white text-4xl sm:text-5xl md:text-7xl leading-tight" style="text-shadow:0 4px 0 rgba(0,0,0,.14)">
+      The Present Simple<br><span class="text-yellow-300">Tense</span> ✨
+    </h1>
+    <p class="text-white/95 text-lg md:text-xl font-bold mt-6 max-w-2xl mx-auto">
+      A fun, interactive guide to talking about things we do every day! 🕐 🔁 🌍
+    </p>
+    <a href="#uses" class="inline-block mt-8 bg-yellow-400 hover:bg-yellow-300 text-slate-800 fredoka font-bold text-lg px-9 py-4 rounded-full shadow-xl transform hover:scale-105 transition">
+      Start the Adventure! 🚀
+    </a>
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 leading-none">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" class="w-full h-16 md:h-24 block">
+      <path d="M0,48 C240,90 480,0 720,32 C960,64 1200,16 1440,48 L1440,90 L0,90 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex gap-2 md:gap-3 justify-start md:justify-center overflow-x-auto py-3 no-scrollbar">
+      <a href="#uses" class="nav-link">🎯 When?</a>
+      <a href="#pattern" class="nav-link">🧩 Pattern</a>
+      <a href="#magics" class="nav-link">🪄 Magic S</a>
+      <a href="#often" class="nav-link">📊 How Often</a>
+      <a href="#table" class="nav-link">📋 Word Table</a>
+      <a href="#quiz" class="nav-link">🎮 Quiz</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= WHEN DO WE USE IT ================= -->
+<section id="uses" class="max-w-6xl mx-auto px-4 py-14 scroll-mt-20">
+  <div class="text-center mb-10">
+    <span class="section-badge bg-rose-100 text-rose-600">🎯 Step 1</span>
+    <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mt-3">When do we use it?</h2>
+    <div class="flex justify-center mt-3">
+      <svg width="124" height="12" viewBox="0 0 124 12"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8 T122 8" fill="none" stroke="#fb7185" stroke-width="4" stroke-linecap="round"/></svg>
+    </div>
+    <p class="text-slate-500 font-bold mt-3 text-lg">The Present Simple talks about three big things:</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="bg-white rounded-3xl p-7 shadow-xl border-b-8 border-sky-400 hover:-translate-y-2 transition-transform duration-200">
+      <div class="w-20 h-20 mx-auto rounded-full bg-sky-100 flex items-center justify-center text-5xl shadow-inner">🕐</div>
+      <h3 class="text-2xl font-bold text-sky-600 text-center mt-4">Daily Routines</h3>
+      <p class="text-center font-bold text-slate-500 mt-2">Things you do <span class="text-sky-500">every single day</span> — like clockwork!</p>
+      <div class="mt-5 bg-sky-50 rounded-2xl p-4 text-center">
+        <p class="tag text-sky-400">Example</p>
+        <p class="fredoka text-lg text-slate-700 mt-1">“I <span class="v">brush</span> my teeth every morning.”</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-7 shadow-xl border-b-8 border-pink-400 hover:-translate-y-2 transition-transform duration-200">
+      <div class="w-20 h-20 mx-auto rounded-full bg-pink-100 flex items-center justify-center text-5xl shadow-inner">🔁</div>
+      <h3 class="text-2xl font-bold text-pink-600 text-center mt-4">Habits</h3>
+      <p class="text-center font-bold text-slate-500 mt-2">Things you do <span class="text-pink-500">again and again</span> — on Sundays, over and over!</p>
+      <div class="mt-5 bg-pink-50 rounded-2xl p-4 text-center">
+        <p class="tag text-pink-400">Example</p>
+        <p class="fredoka text-lg text-slate-700 mt-1">“She <span class="v">rides</span> her bike on Sundays.”</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-7 shadow-xl border-b-8 border-emerald-400 hover:-translate-y-2 transition-transform duration-200">
+      <div class="w-20 h-20 mx-auto rounded-full bg-emerald-100 flex items-center justify-center text-5xl shadow-inner">🌍</div>
+      <h3 class="text-2xl font-bold text-emerald-600 text-center mt-4">True Facts</h3>
+      <p class="text-center font-bold text-slate-500 mt-2">Things that are <span class="text-emerald-500">always true</span> — for everyone, everywhere!</p>
+      <div class="mt-5 bg-emerald-50 rounded-2xl p-4 text-center">
+        <p class="tag text-emerald-400">Example</p>
+        <p class="fredoka text-lg text-slate-700 mt-1">“The sun <span class="v">rises</span> in the east.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE MAGIC PATTERN ================= -->
+<section id="pattern" class="py-14 bg-gradient-to-b from-violet-50 to-white scroll-mt-20">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <span class="section-badge bg-violet-100 text-violet-600">🧩 Step 2</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mt-3">The Magic Pattern</h2>
+      <div class="flex justify-center mt-3">
+        <svg width="124" height="12" viewBox="0 0 124 12"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8 T122 8" fill="none" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round"/></svg>
+      </div>
+      <p class="text-slate-500 font-bold mt-3 text-lg">Every Present Simple sentence is a recipe: <b>WHO + WHAT</b>!</p>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-violet-200">
+      <div class="flex items-center justify-center gap-2 md:gap-3 flex-wrap mb-8">
+        <div class="eq-box bg-violet-100 text-violet-700">① WHO?</div>
+        <span class="text-3xl font-black text-slate-300">+</span>
+        <div class="eq-box bg-teal-100 text-teal-700">② WHAT?</div>
+        <span class="text-3xl font-black text-slate-300">=</span>
+        <div class="eq-box bg-amber-100 text-amber-600">③ SENTENCE!</div>
+      </div>
+
+      <p class="text-center font-extrabold text-slate-400 mb-3">👆 Step 1 · Pick a WHO (pronoun):</p>
+      <div class="flex flex-wrap justify-center gap-2 mb-7" id="pronounBtns">
+        <button type="button" class="pick-btn" data-p="I">I</button>
+        <button type="button" class="pick-btn" data-p="You">You</button>
+        <button type="button" class="pick-btn" data-p="He">He</button>
+        <button type="button" class="pick-btn" data-p="She">She</button>
+        <button type="button" class="pick-btn" data-p="It">It</button>
+        <button type="button" class="pick-btn" data-p="We">We</button>
+        <button type="button" class="pick-btn" data-p="They">They</button>
+      </div>
+
+      <p class="text-center font-extrabold text-slate-400 mb-3">👆 Step 2 · Pick a WHAT (verb):</p>
+      <div class="flex flex-wrap justify-center gap-2 mb-8" id="verbBtns">
+        <button type="button" class="pick-btn" data-v="play">play ⚽</button>
+        <button type="button" class="pick-btn" data-v="eat">eat 🍎</button>
+        <button type="button" class="pick-btn" data-v="watch">watch 📺</button>
+        <button type="button" class="pick-btn" data-v="go">go 🚌</button>
+      </div>
+
+      <div class="bg-slate-800 rounded-3xl p-7 md:p-9 text-center shadow-inner">
+        <p class="text-xs md:text-sm text-slate-400 font-extrabold uppercase tracking-widest mb-3">✨ Your sentence ✨</p>
+        <p id="sentenceOut" class="fredoka text-3xl md:text-5xl font-semibold text-white">
+          <span id="sSubj">I</span>&nbsp;<span id="sVerb">play</span><span>.</span>
+        </p>
+      </div>
+      <p id="patternHint" class="text-center mt-5 font-bold text-slate-500 text-lg"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE MAGIC S ================= -->
+<section id="magics" class="max-w-6xl mx-auto px-4 py-14 scroll-mt-20">
+  <div class="text-center mb-10">
+    <span class="section-badge bg-amber-100 text-amber-600">🪄 Step 3</span>
+    <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mt-3">The Magic S! ✨</h2>
+    <div class="flex justify-center mt-3">
+      <svg width="124" height="12" viewBox="0 0 124 12"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8 T122 8" fill="none" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/></svg>
+    </div>
+    <p class="text-slate-500 font-bold mt-3 text-lg">When the “who” is <b>He, She</b> or <b>It</b> — the verb grows a shiny tail!</p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6 items-stretch">
+    <div class="bg-gradient-to-br from-amber-400 to-orange-500 rounded-3xl p-8 text-white shadow-xl hover:-translate-y-1 transition-transform">
+      <h3 class="text-3xl font-bold">He · She · It</h3>
+      <p class="fredoka font-semibold text-xl mt-1">+ verb + <span class="bg-white text-orange-500 rounded-lg px-2 py-0.5">S</span></p>
+      <p class="font-bold mt-4 text-white/90">One person or one thing? The verb gets bigger!</p>
+      <div class="mt-6 bg-white/25 rounded-2xl p-5 text-center">
+        <p class="fredoka text-2xl md:text-3xl font-semibold">He&nbsp;play&nbsp;➜&nbsp;play<span class="underline decoration-white decoration-4 underline-offset-4">s</span></p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-8 shadow-xl border-b-8 border-amber-400 hover:-translate-y-1 transition-transform">
+      <h3 class="text-2xl font-bold text-slate-700">🚨 Watch out for -ES!</h3>
+      <p class="font-bold text-slate-500 mt-1">After <b>ch · sh · s · x · o</b> → add <b class="text-orange-500">ES</b></p>
+      <ul class="mt-5 space-y-3 fredoka text-xl text-slate-600 font-semibold">
+        <li>watch ➜ watch<b class="text-orange-500">es</b></li>
+        <li>go ➜ go<b class="text-orange-500">es</b></li>
+        <li>pass ➜ pass<b class="text-orange-500">es</b></li>
+      </ul>
+      <div class="mt-6 bg-amber-50 border-2 border-amber-200 rounded-2xl p-4">
+        <p class="font-extrabold text-amber-700">⭐ Special friends to memorize:</p>
+        <p class="fredoka text-lg text-slate-600 mt-1">do ➜ <b class="text-orange-500">does</b> &nbsp;·&nbsp; have ➜ <b class="text-orange-500">has</b></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="bg-white rounded-2xl shadow-lg p-5 text-center border-2 border-slate-100 hover:scale-105 transition-transform">
+      <p class="fredoka text-2xl font-semibold text-slate-500">play</p>
+      <p class="text-xl my-1">⬇️</p>
+      <p class="fredoka text-2xl font-bold text-amber-500">play<b class="underline decoration-4 underline-offset-4">s</b></p>
+    </div>
+    <div class="bg-white rounded-2xl shadow-lg p-5 text-center border-2 border-slate-100 hover:scale-105 transition-transform">
+      <p class="fredoka text-2xl font-semibold text-slate-500">eat</p>
+      <p class="text-xl my-1">⬇️</p>
+      <p class="fredoka text-2xl font-bold text-amber-500">eat<b class="underline decoration-4 underline-offset-4">s</b></p>
+    </div>
+    <div class="bg-white rounded-2xl shadow-lg p-5 text-center border-2 border-slate-100 hover:scale-105 transition-transform">
+      <p class="fredoka text-2xl font-semibold text-slate-500">watch</p>
+      <p class="text-xl my-1">⬇️</p>
+      <p class="fredoka text-2xl font-bold text-amber-500">watch<b class="underline decoration-4 underline-offset-4">es</b></p>
+    </div>
+    <div class="bg-white rounded-2xl shadow-lg p-5 text-center border-2 border-slate-100 hover:scale-105 transition-transform">
+      <p class="fredoka text-2xl font-semibold text-slate-500">go</p>
+      <p class="text-xl my-1">⬇️</p>
+      <p class="fredoka text-2xl font-bold text-amber-500">go<b class="underline decoration-4 underline-offset-4">es</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW OFTEN ================= -->
+<section id="often" class="py-14 bg-gradient-to-b from-teal-50 to-white scroll-mt-20">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <span class="section-badge bg-teal-100 text-teal-600">📊 Step 4</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mt-3">How often? 🤔</h2>
+      <div class="flex justify-center mt-3">
+        <svg width="124" height="12" viewBox="0 0 124 12"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8 T122 8" fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round"/></svg>
+      </div>
+      <p class="text-slate-500 font-bold mt-3 text-lg">These special words tell us <b>how often</b> — and they love the Present Simple!</p>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10">
+      <div class="space-y-7">
+        <div class="freq-row" style="--w:100%">
+          <div class="flex justify-between items-center fredoka font-bold text-lg mb-1">
+            <span>😄 Always</span><span class="text-teal-500">100%</span>
+          </div>
+          <div class="freq-track"><div class="freq-bar bg-teal-400" style="--w:100%"></div></div>
+          <p class="text-sm font-bold text-slate-400 mt-1.5">“I <b>always</b> brush my teeth before bed.”</p>
+        </div>
+
+        <div class="freq-row" style="--w:80%">
+          <div class="flex justify-between items-center fredoka font-bold text-lg mb-1">
+            <span>🙂 Usually</span><span class="text-green-500">80%</span>
+          </div>
+          <div class="freq-track"><div class="freq-bar bg-green-400" style="--w:80%"></div></div>
+          <p class="text-sm font-bold text-slate-400 mt-1.5">“I <b>usually</b> walk to school.”</p>
+        </div>
+
+        <div class="freq-row" style="--w:50%">
+          <div class="flex justify-between items-center fredoka font-bold text-lg mb-1">
+            <span>🤔 Sometimes</span><span class="text-amber-500">50%</span>
+          </div>
+          <div class="freq-track"><div class="freq-bar bg-amber-400" style="--w:50%"></div></div>
+          <p class="text-sm font-bold text-slate-400 mt-1.5">“I <b>sometimes</b> eat pizza for lunch.”</p>
+        </div>
+
+        <div class="freq-row" style="--w:0%">
+          <div class="flex justify-between items-center fredoka font-bold text-lg mb-1">
+            <span>🚫 Never</span><span class="text-rose-500">0%</span>
+          </div>
+          <div class="freq-track"><div class="freq-bar bg-rose-400" style="--w:0%"></div></div>
+          <p class="text-sm font-bold text-slate-400 mt-1.5">“I <b>never</b> forget my homework.”</p>
+        </div>
+      </div>
+
+      <div class="mt-9 flex flex-wrap justify-center gap-2">
+        <span class="chip">every day</span>
+        <span class="chip">every morning</span>
+        <span class="chip">on Mondays</span>
+        <span class="chip">once a week</span>
+        <span class="chip">twice a month</span>
+        <span class="chip">every weekend</span>
+      </div>
+      <p class="text-center text-slate-400 font-bold mt-4">💡 These time words usually sit at the <b>start</b> or the <b>end</b> of the sentence!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORD TABLE ================= -->
+<section id="table" class="max-w-5xl mx-auto px-4 py-14 scroll-mt-20">
+  <div class="text-center mb-10">
+    <span class="section-badge bg-indigo-100 text-indigo-600">📋 Step 5</span>
+    <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mt-3">The Big Word Table</h2>
+    <div class="flex justify-center mt-3">
+      <svg width="124" height="12" viewBox="0 0 124 12"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8 T122 8" fill="none" stroke="#6366f1" stroke-width="4" stroke-linecap="round"/></svg>
+    </div>
+    <p class="text-slate-500 font-bold mt-3 text-lg">Everyone plays — but <b>He, She &amp; It</b> play a little differently! 🕵️</p>
+  </div>
+
+  <div class="bg-white rounded-3xl shadow-2xl border-2 border-slate-100 overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[640px] text-left">
+        <thead>
+          <tr class="bg-indigo-500 text-white fredoka">
+            <th class="p-4 md:p-5 text-lg">Who?</th>
+            <th class="p-4 md:p-5 text-lg">Verb</th>
+            <th class="p-4 md:p-5 text-lg">Magic S?</th>
+            <th class="p-4 md:p-5 text-lg">Example</th>
+          </tr>
+        </thead>
+        <tbody class="font-bold text-slate-600">
+          <tr class="border-t border-slate-100">
+            <td class="p-4 md:p-5"><span class="pronoun-chip">I</span></td>
+            <td class="p-4 md:p-5 fredoka text-lg">play</td>
+            <td class="p-4 md:p-5 text-slate-300">—</td>
+            <td class="p-4 md:p-5">I <span class="v">play</span> soccer after school. ⚽</td>
+          </tr>
+          <tr class="border-t border-slate-100">
+            <td class="p-4 md:p-5"><span class="pronoun-chip">You</span></td>
+            <td class="p-4 md:p-5 fredoka text-lg">play</td>
+            <td class="p-4 md:p-5 text-slate-300">—</td>
+            <td class="p-4 md:p-5">You <span class="v">play</span> the piano on Mondays. 🎹</td>
+          </tr>
+          <tr class="border-t border-amber-100 magic-row">
+            <td class="p-4 md:p-5"><span class="pronoun-chip">He</span></td>
+            <td class="p-4 md:p-5 fredoka text-lg">play<b class="text-orange-500">s</b></td>
+            <td class="p-4 md:p-5 text-orange-500">✨ +S</td>
+            <td class="p-4 md:p-5">He <span class="v">plays</span> with his dog. 🐕</td>
+          </tr>
+          <tr class="border-t border-amber-100 magic-row">
+            <td class="p-4 md:p-5"><span class="pronoun-chip">She</span></td>
+            <td class="p-4 md:p-5 fredoka text-lg">play<b class="text-orange-500">s</b></td>
+            <td class="p-4 md:p-5 text-orange-500">✨ +S</td>
+            <td class="p-4 md:p-5">She <span class="v">plays</span> at the park. 🌳</td>
+          </tr>
+          <tr class="border-t border-amber-100 magic-row">
+            <td class="p-4 md:p-5"><span class="pronoun-chip">It</span></td>
+            <td class="p-4 md:p-5 fredoka text-lg">play<b class="text-orange-500">s</b></td>
+            <td class="p-4 md:p-5 text-orange-500">✨ +S</td>
+            <td class="p-4 md:p-5">It <span class="v">plays</span> all day! 🐱</td>
+          </tr>
+          <tr class="border-t border-slate-100">
+            <td class="p-4 md:p-5"><span class="pronoun-chip">We</span></td>
+            <td class="p-4 md:p-5 fredoka text-lg">play</td>
+            <td class="p-4 md:p-5 text-slate-300">—</td>
+            <td class="p-4 md:p-5">We <span class="v">play</span> together at recess. 🤝</td>
+          </tr>
+          <tr class="border-t border-slate-100">
+            <td class="p-4 md:p-5"><span class="pronoun-chip">They</span></td>
+            <td class="p-4 md:p-5 fredoka text-lg">play</td>
+            <td class="p-4 md:p-5 text-slate-300">—</td>
+            <td class="p-4 md:p-5">They <span class="v">play</span> every Saturday. 📅</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="text-center mt-4 font-bold text-slate-400">🟧 Orange rows = the Magic S team (He, She, It)!</p>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section id="quiz" class="py-14 bg-gradient-to-b from-violet-100 to-purple-50 scroll-mt-20">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="text-center mb-8">
+      <span class="section-badge bg-purple-200 text-purple-700">🎮 Final Challenge</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mt-3">Quiz Time! 🧠</h2>
+      <div class="flex justify-center mt-3">
+        <svg width="124" height="12" viewBox="0 0 124 12"><path d="M2 8 Q12 2 22 8 T42 8 T62 8 T82 8 T102 8 T122 8" fill="none" stroke="#a855f7" stroke-width="4" stroke-linecap="round"/></svg>
+      </div>
+      <p class="text-slate-500 font-bold mt-3 text-lg">Pick the right verb. 5 questions — can you get them all?</p>
+    </div>
+
+    <div id="quizBox" class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-purple-200">
+      <div class="flex justify-between items-center mb-4">
+        <span id="qCounter" class="fredoka font-bold text-purple-400">Question 1 / 5</span>
+        <span id="qScore" class="fredoka font-bold bg-yellow-100 text-yellow-600 px-4 py-1 rounded-full">⭐ 0</span>
+      </div>
+      <div class="w-full bg-slate-100 rounded-full h-3 mb-6 overflow-hidden">
+        <div id="qProgress" class="bg-purple-500 h-full rounded-full transition-all duration-500" style="width:20%"></div>
+      </div>
+      <p id="qText" class="fredoka text-2xl md:text-3xl font-semibold text-slate-700 leading-snug mb-6"></p>
+      <div id="qOptions" class="grid gap-3"></div>
+      <div id="qFeedback" class="hidden mt-5 font-bold text-lg rounded-2xl p-4"></div>
+      <button type="button" id="qNext" class="hidden mt-5 w-full bg-purple-500 hover:bg-purple-600 text-white fredoka text-xl font-bold py-4 rounded-2xl transition shadow-lg">Next ➜</button>
+    </div>
+
+    <div id="quizResult" class="hidden bg-white rounded-3xl shadow-2xl p-10 text-center border-4 border-yellow-300">
+      <div id="resultEmoji" class="text-7xl mb-4 animate-bounce">🏆</div>
+      <h3 id="resultTitle" class="fredoka text-3xl font-bold text-slate-800"></h3>
+      <p id="resultMsg" class="font-bold text-slate-500 mt-2 text-lg"></p>
+      <p id="resultScore" class="fredoka text-5xl font-bold text-purple-500 mt-4"></p>
+      <button type="button" id="qRestart" class="mt-6 bg-yellow-400 hover:bg-yellow-300 text-slate-800 fredoka text-xl font-bold px-9 py-4 rounded-full shadow-lg transition">Play again! 🔁</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-slate-800 text-white py-10 mt-6">
+  <div class="max-w-5xl mx-auto px-4 text-center">
+    <p class="fredoka text-2xl font-bold">🌟 Happy Learning! 🌟</p>
+    <p class="font-bold text-slate-300 mt-2">Present Simple = routines, habits &amp; facts. He / She / It? Add the Magic S!</p>
+    <p class="text-slate-400 mt-4 text-sm font-semibold">Made with ❤️ for Grade 3 Grammar Heroes · <a href="#top" class="text-yellow-300 hover:underline">Back to top 🔝</a></p>
+  </div>
+</footer>
+
+<script>
+  /* ================= PATTERN EXPLORER ================= */
+  const VERBS = {
+    play:  { base: 'play',  third: 'plays'   },
+    eat:   { base: 'eat',   third: 'eats'    },
+    watch: { base: 'watch', third: 'watches' },
+    go:    { base: 'go',    third: 'goes'    }
+  };
+  const THIRD_PERSON = ['He', 'She', 'It'];
+  let curPronoun = 'I';
+  let curVerb = 'play';
+
+  const pronounBtns = document.querySelectorAll('#pronounBtns .pick-btn');
+  const verbBtns    = document.querySelectorAll('#verbBtns .pick-btn');
+  const sSubj       = document.getElementById('sSubj');
+  const sVerb       = document.getElementById('sVerb');
+  const sentenceOut = document.getElementById('sentenceOut');
+  const patternHint = document.getElementById('patternHint');
+
+  function renderSentence() {
+    sSubj.textContent = curPronoun;
+    const v = VERBS[curVerb];
+    if (THIRD_PERSON.includes(curPronoun)) {
+      const suffix = v.third.slice(v.base.length); // 's' or 'es'
+      sVerb.innerHTML = v.base + '<span class="s-magic">' + suffix + '</span>';
+      patternHint.innerHTML = '✨ <b>He, She, It</b> get a magic <b class="text-amber-500">' + suffix.toUpperCase() + '</b> at the end!';
+    } else {
+      sVerb.textContent = v.base;
+      patternHint.innerHTML = '✅ <b>I, You, We, They</b> use the plain verb — no magic needed!';
+    }
+    sentenceOut.classList.remove('pop-in');
+    void sentenceOut.offsetWidth; /* restart animation */
+    sentenceOut.classList.add('pop-in');
+  }
+
+  pronounBtns.forEach(btn => btn.addEventListener('click', () => {
+    pronounBtns.forEach(b => b.classList.remove('active-p'));
+    btn.classList.add('active-p');
+    curPronoun = btn.dataset.p;
+    renderSentence();
+  }));
+  verbBtns.forEach(btn => btn.addEventListener('click', () => {
+    verbBtns.forEach(b => b.classList.remove('active-v'));
+    btn.classList.add('active-v');
+    curVerb = btn.dataset.v;
+    renderSentence();
+  }));
+  pronounBtns[0].classList.add('active-p');
+  verbBtns[0].classList.add('active-v');
+  renderSentence();
+
+  /* ================= FREQUENCY BARS (animate on scroll) ================= */
+  const freqObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        freqObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.35 });
+  document.querySelectorAll('.freq-row').forEach(row => freqObserver.observe(row));
+
+  /* ================= QUIZ ================= */
+  const QUIZ = [
+    { q: "She ______ breakfast at 8 o'clock every morning.", opts: ['eat', 'eats', 'eating'], a: 1, why: "She → eat + S = eats ✨" },
+    { q: "They ______ football on Saturdays.",               opts: ['play', 'plays', 'playing'], a: 0, why: "They → plain verb: play" },
+    { q: "My big brother ______ his bike to school.",        opts: ['ride', 'rides', 'riding'], a: 1, why: "He → ride + S = rides ✨" },
+    { q: "I ______ my homework after dinner.",               opts: ['do', 'does', 'doing'], a: 0, why: "I → plain verb: do" },
+    { q: "The little cat ______ milk every day.",            opts: ['drink', 'drinks', 'drinking'], a: 1, why: "It → drink + S = drinks ✨" }
+  ];
+
+  const qText      = document.getElementById('qText');
+  const qCounter   = document.getElementById('qCounter');
+  const qScore     = document.getElementById('qScore');
+  const qProgress  = document.getElementById('qProgress');
+  const qOptions   = document.getElementById('qOptions');
+  const qFeedback  = document.getElementById('qFeedback');
+  const qNext      = document.getElementById('qNext');
+  const quizBox    = document.getElementById('quizBox');
+  const quizResult = document.getElementById('quizResult');
+  const resultEmoji  = document.getElementById('resultEmoji');
+  const resultTitle  = document.getElementById('resultTitle');
+  const resultMsg    = document.getElementById('resultMsg');
+  const resultScore  = document.getElementById('resultScore');
+  const qRestart     = document.getElementById('qRestart');
+
+  let qi = 0, score = 0, answered = false;
+
+  function renderQuestion() {
+    answered = false;
+    const item = QUIZ[qi];
+    qText.textContent = item.q;
+    qCounter.textContent = 'Question ' + (qi + 1) + ' / ' + QUIZ.length;
+    qProgress.style.width = ((qi + 1) / QUIZ.length * 100) + '%';
+    qFeedback.classList.add('hidden');
+    qNext.classList.add('hidden');
+    qNext.textContent = (qi === QUIZ.length - 1) ? 'See my result! 🏆' : 'Next ➜';
+    qOptions.innerHTML = '';
+    item.opts.forEach((opt, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'quiz-opt';
+      b.textContent = opt;
+      b.addEventListener('click', () => answerQuestion(i, b));
+      qOptions.appendChild(b);
+    });
+  }
+
+  function answerQuestion(i, btn) {
+    if (answered) return;
+    answered = true;
+    const item = QUIZ[qi];
+    const btns = Array.from(qOptions.children);
+    btns.forEach(b => b.disabled = true);
+    if (i === item.a) {
+      score++;
+      qScore.textContent = '⭐ ' + score;
+      btn.classList.add('correct');
+      qFeedback.className = 'mt-5 font-bold text-lg rounded-2xl p-4 bg-green-100 text-green-700';
+      qFeedback.innerHTML = '🎉 Correct! ' + item.why;
+    } else {
+      btn.classList.add('wrong');
+      btns[item.a].classList.add('correct');
+      qFeedback.className = 'mt-5 font-bold text-lg rounded-2xl p-4 bg-rose-100 text-rose-700';
+      qFeedback.innerHTML = '💡 Not quite. ' + item.why;
+    }
+    qFeedback.classList.remove('hidden');
+    qNext.classList.remove('hidden');
+  }
+
+  qNext.addEventListener('click', () => {
+    qi++;
+    if (qi < QUIZ.length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  });
+
+  function showResult() {
+    quizBox.classList.add('hidden');
+    quizResult.classList.remove('hidden');
+    resultScore.textContent = score + ' / ' + QUIZ.length;
+    if (score === QUIZ.length) {
+      resultEmoji.textContent = '🏆';
+      resultTitle.textContent = 'Grammar Superstar!';
+      resultMsg.textContent = 'Perfect score! You mastered the Present Simple! 🌟';
+      launchConfetti();
+    } else if (score >= 3) {
+      resultEmoji.textContent = '😃';
+      resultTitle.textContent = 'Great Job!';
+      resultMsg.textContent = 'You are doing awesome — keep it up!';
+      launchConfetti();
+    } else {
+      resultEmoji.textContent = '💪';
+      resultTitle.textContent = 'Keep Practicing!';
+      resultMsg.textContent = 'Every hero trains — read the Magic S rule and try again!';
+    }
+    quizResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  qRestart.addEventListener('click', () => {
+    qi = 0;
+    score = 0;
+    qScore.textContent = '⭐ 0';
+    quizResult.classList.add('hidden');
+    quizBox.classList.remove('hidden');
+    renderQuestion();
+  });
+
+  renderQuestion();
+
+  /* ================= CONFETTI ================= */
+  function launchConfetti() {
+    const colors = ['#f43f5e', '#f97316', '#facc15', '#22c55e', '#0ea5e9', '#8b5cf6', '#ec4899'];
+    for (let i = 0; i < 80; i++) {
+      const piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      const size = 6 + Math.random() * 10;
+      piece.style.width = size + 'px';
+      piece.style.height = size + 'px';
+      piece.style.left = Math.random() * 100 + 'vw';
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.animationDuration = (2.2 + Math.random() * 2) + 's';
+      piece.style.animationDelay = Math.random() * 0.6 + 's';
+      if (Math.random() > 0.5) piece.style.borderRadius = '50%';
+      document.body.appendChild(piece);
+      setTimeout(() => piece.remove(), 5200);
+    }
+  }
+</script>
+</body>
+</html>
